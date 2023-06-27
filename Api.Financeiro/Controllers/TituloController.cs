@@ -51,7 +51,7 @@ namespace Api.Financeiro.Controllers
 
                 if (titulo is null)
                 {
-                    return NotFound("Registro não Encontrado");
+                    return NotFound("Titulo não Encontrado");
                 }
 
                 return Ok(titulo);
