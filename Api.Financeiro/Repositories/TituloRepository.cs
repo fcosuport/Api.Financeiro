@@ -38,30 +38,34 @@ namespace Api.Financeiro.Repositories
                 query = query.Where(t => t.Status == status);
             }
 
-            if (opcaodata == "Emissao")
+            if (opcaodata != "Todos")
             {
-                query = query.Where(t => t.Emissao >= datainicial && t.Emissao <= datafinal);
-            }
+                if (opcaodata == "Emissao")
+                {
+                    query = query.Where(t => t.Emissao >= datainicial && t.Emissao <= datafinal);
+                }
 
-            if (opcaodata == "Vencimento")
-            {
-                query = query.Where(t => t.Vencimento >= datainicial && t.Vencimento <= datafinal);
-            }
+                if (opcaodata == "Vencimento")
+                {
+                    query = query.Where(t => t.Vencimento >= datainicial && t.Vencimento <= datafinal);
+                }
 
-            if (opcaodata == "DtPagamento")
-            {
-                query = query.Where(t => t.DtPagamento >= datainicial && t.DtPagamento <= datafinal);
+                if (opcaodata == "Pagamento")
+                {
+                    query = query.Where(t => t.DtPagamento >= datainicial && t.DtPagamento <= datafinal);
+                }
+
             }
 
             switch (ordenar)
             {
-                case "emissao":
+                case "Emissao":
                     query = query.OrderBy(t => t.Emissao);
                     break;
-                case "vencimento":
+                case "Vencimento":
                     query = query.OrderBy(t => t.Vencimento);
                     break;
-                case "cliente":
+                case "Cliente":
                     query = query.OrderBy(t => t.Cliente.Razao).ThenBy(t => t.Vencimento);
                     break;
                 default:
