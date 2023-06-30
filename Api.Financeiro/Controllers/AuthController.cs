@@ -32,7 +32,7 @@ namespace Api.Financeiro.Controllers
                 return Ok(new { user = new { id = user.Id, nome = user.Nome }, token = token });
             }
 
-            return BadRequest("nome ou senha inválida");
+            return BadRequest(new { mensagem = "nome ou senha inválida" });
         }
     }
 }
