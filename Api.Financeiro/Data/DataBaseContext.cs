@@ -20,4 +20,6 @@ public class DataBaseContext: DbContext
     public DbSet<Assinatura> Assinaturas { get; set; }
 
     public DbSet<Titulo> Titulos { get; set; }
+
+    public DbSet<Usuario> Usuarios { get; set; }
 }

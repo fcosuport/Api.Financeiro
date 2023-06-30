@@ -110,7 +110,7 @@ namespace Api.Financeiro.Repositories
                     ClienteId = titulo.ClienteId,
                     FormaPagamentoId = titulo.FormaPagamentoId,
                     Valor = titulo.Valor,
-                    Status = titulo.Status,
+                    Status = "ABERTO",
                     QtdeParcelas = titulo.QtdeParcelas,
                     Emissao = titulo.Emissao,
                     Vencimento = datavenc,
@@ -139,6 +139,8 @@ namespace Api.Financeiro.Repositories
         public async Task<Titulo> Alterar(int id, Titulo titulo)
         {
             _context.Entry(titulo).State = EntityState.Modified;
+            _context.Entry(titulo).Property(t => t.Status).IsModified = false;
+            _context.Entry(titulo).Property(t => t.QtdeParcelas).IsModified = false;
             _context.Entry(titulo).Property(t => t.DtPagamento).IsModified = false;
             _context.Entry(titulo).Property(t => t.Cancelado).IsModified = false;
 

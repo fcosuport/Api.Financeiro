@@ -1,5 +1,6 @@
 ﻿using Api.Financeiro.Interfaces;
 using Api.Financeiro.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 
@@ -9,6 +10,7 @@ namespace Api.Financeiro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PlanoController : ControllerBase
     {
         private readonly IPlanoRepository _planoRepository;
