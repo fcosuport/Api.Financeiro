@@ -19,7 +19,7 @@ namespace Api.Financeiro.Token
                     new Claim(ClaimTypes.Sid, usuario.Id.ToString()),
                     new Claim(ClaimTypes.Name, usuario.Nome)
                 }),
-                Expires = DateTime.UtcNow.AddHours(2),
+                Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(chKey), SecurityAlgorithms.HmacSha256Signature)
             };
 

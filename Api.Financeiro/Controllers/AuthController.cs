@@ -29,7 +29,8 @@ namespace Api.Financeiro.Controllers
                 var token = TokenService.GenerateToken(user);
 
                 // Retorne o usuário sem a senha e o token
-                return Ok(new { user = new { id = user.Id, nome = user.Nome }, token = token });
+                // return Ok(new { user = new { id = user.Id, nome = user.Nome }, token = token });
+                return Ok(new { token = token });
             }
 
             return BadRequest(new { mensagem = "nome ou senha inválida" });
