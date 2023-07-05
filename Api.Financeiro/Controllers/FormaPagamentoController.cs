@@ -1,6 +1,7 @@
 ﻿using Api.Financeiro.Interfaces;
 using Api.Financeiro.Models;
 using Api.Financeiro.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,6 +10,7 @@ namespace Api.Financeiro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FormaPagamentoController : ControllerBase
     {
         private readonly IFormaPagamentoRepository _formapagamentoRepository;

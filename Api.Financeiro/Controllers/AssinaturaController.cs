@@ -1,5 +1,6 @@
 ﻿using Api.Financeiro.Interfaces;
 using Api.Financeiro.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -9,6 +10,7 @@ namespace Api.Financeiro.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AssinaturaController : ControllerBase
     {
         private readonly IAssinaturaRepository _assinaturaRepository;
