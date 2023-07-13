@@ -3,6 +3,7 @@ using System;
 using Api.Financeiro.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Api.Financeiro.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20230705202321_Tamanho_Senha_Usuario")]
+    partial class Tamanho_Senha_Usuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,16 +39,8 @@ namespace Api.Financeiro.Migrations
                     b.Property<int>("ClienteId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("CodAssinatura")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
                     b.Property<int>("DiaVencimento")
                         .HasColumnType("integer");
-
-                    b.Property<DateTime>("DtPrimeiraParcela")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("Dtcadastro")
                         .HasColumnType("timestamp without time zone");
@@ -55,11 +50,6 @@ namespace Api.Financeiro.Migrations
 
                     b.Property<int>("FormaPagamentoId")
                         .HasColumnType("integer");
-
-                    b.Property<string>("NomeWhats")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("PlanoId")
                         .HasColumnType("integer");
@@ -179,11 +169,6 @@ namespace Api.Financeiro.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CodProdGn")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
-
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -261,7 +246,7 @@ namespace Api.Financeiro.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
-                        .HasMaxLength(10)
+                        .HasMaxLength(6)
                         .HasColumnType("varchar(10)");
 
                     b.HasKey("Id");

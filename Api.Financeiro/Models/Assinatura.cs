@@ -39,5 +39,16 @@ namespace Api.Financeiro.Models
 
         [Column(TypeName = "Boolean")]
         public Boolean Cancelado { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime DtPrimeiraParcela { get; set; }
+
+        [StringLength(50)]
+        [Column(TypeName = "varchar(50)")]
+        public string CodAssinatura { get; set; } = string.Empty;
+
+        [StringLength(100)]
+        [Column(TypeName = "varchar(100)")]
+        public string NomeWhats { get; set; } = string.Empty;
     }
 }

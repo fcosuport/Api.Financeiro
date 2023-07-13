@@ -15,8 +15,8 @@ namespace Api.Financeiro.Models
         public string Nome { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(6)]
-        [Column(TypeName = "varchar(6)")]
+        [StringLength(10)]
+        [Column(TypeName = "varchar(10)")]
         public string Senha { get; set; } = string.Empty;
     }
 }

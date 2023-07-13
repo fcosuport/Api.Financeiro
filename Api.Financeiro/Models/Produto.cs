@@ -17,6 +17,10 @@ namespace Api.Financeiro.Models
         [Column(TypeName = "numeric(10,2)")]
         public decimal Valor { get; set; }
 
+        [StringLength(20)]
+        [Column(TypeName = "varchar(20)")]
+        public string CodProdGn { get; set; } = string.Empty;
+
         public ICollection<Assinatura>? Assinaturas { get; }
     }
 }
