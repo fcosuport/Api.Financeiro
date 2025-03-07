@@ -88,7 +88,7 @@ namespace Api.Financeiro.Controllers
 
             if (id != titulo.Id)
             {
-                return BadRequest("Assinatura invalida");
+                return BadRequest("Titulo invalido");
             }
 
             await _tituloRepository.Alterar(id, titulo);

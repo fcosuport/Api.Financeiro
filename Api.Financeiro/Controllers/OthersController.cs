@@ -27,5 +27,13 @@ namespace Api.Financeiro.Controllers
             return Ok(assinaturas);
         }
 
+        [HttpGet("datahora")]
+        public async Task<ActionResult> Datahora(int dia)
+        {
+            
+
+            return Ok(new {DateTime.UtcNow, DateTime.Now});
+        }
+
     }
 }
